@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MovieList</string>
+
+
+
+    <string name="text_rating">Rating: %s</string>
+    <string name="text_movie_title">The Dark Knight</string>
+</resources>

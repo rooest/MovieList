@@ -1,0 +1,75 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+def libraries = rootProject.ext.libraries
+def configuration = rootProject.ext.configuration
+
+
+
+android {
+    compileSdkVersion configuration.compileSdkVersion
+
+    defaultConfig {
+        applicationId configuration.package
+        minSdkVersion configuration.minSdkVersion
+        targetSdkVersion configuration.targetSdkVersion
+        versionCode configuration.versionCode
+        versionName configuration.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:${libraries.support}"
+    implementation "com.android.support:support-v4:${libraries.support}"
+    implementation "com.android.support:design:${libraries.support}"
+    implementation "com.android.support:recyclerview-v7:${libraries.support}"
+    implementation "com.android.support:cardview-v7:${libraries.support}"
+    implementation "com.android.support.constraint:constraint-layout:${libraries.constraintLayout}"
+
+    implementation "org.jetbrains.anko:anko:${libraries.ankoVersion}"
+    implementation "org.jetbrains.anko:anko-commons:${libraries.ankoVersion}"
+    implementation "org.jetbrains.anko:anko-coroutines:${libraries.ankoVersion}"
+
+    implementation "com.google.dagger:dagger:${libraries.dagger2Version}"
+    kapt "com.google.dagger:dagger-compiler:${libraries.dagger2Version}"
+    kapt "com.google.dagger:dagger-android-processor:${libraries.dagger2Version}"
+    implementation "com.google.dagger:dagger-android-support:${libraries.dagger2Version}"
+
+    implementation "com.google.code.gson:gson:${libraries.gsonVersion}"
+
+    api "com.squareup.okhttp3:okhttp:${libraries.okhttp}"
+    api "com.squareup.okhttp3:logging-interceptor:${libraries.okhttp}"
+    implementation "com.orhanobut:logger:${libraries.logger}"
+
+
+    api "com.squareup.retrofit2:retrofit:${libraries.retrofit}"
+    api "com.squareup.retrofit2:converter-gson:${libraries.retrofit}"
+
+    implementation "com.squareup.picasso:picasso:${libraries.picassoVersion}"
+    implementation "com.jakewharton.picasso:picasso2-okhttp3-downloader:${libraries.okhttp3Downloader}"
+
+    testImplementation "junit:junit:${libraries.junit}"
+    androidTestImplementation "com.android.support.test:runner:${libraries.supportTestRunner}"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:${libraries.espressoCore}"
+}
