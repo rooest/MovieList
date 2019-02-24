@@ -5,7 +5,7 @@ import com.omer.movielist.data.ApiConstants
 import com.omer.movielist.data.RetrofitService
 import com.omer.movielist.data.model.ApiError
 import com.omer.movielist.data.model.TvSeriesResponse
-import com.omer.movielist.data.model.TvSeriesResult
+import com.omer.movielist.data.model.TvSerieResult
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,7 +19,7 @@ class MovieRepository @Inject constructor(@PublishedApi internal val apiService:
 
     inline fun getPopularSeries(
         page: Int,
-        crossinline successHandler: (List<TvSeriesResult>) -> Unit,
+        crossinline successHandler: (List<TvSerieResult>) -> Unit,
         crossinline failureHandler: (Throwable?) -> Unit,
         crossinline errorHandler: (ApiError) -> Unit
     ) {

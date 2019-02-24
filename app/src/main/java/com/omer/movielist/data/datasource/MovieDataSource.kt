@@ -4,11 +4,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
 import com.omer.movielist.data.ApiConstants
 import com.omer.movielist.data.model.ApiError
-import com.omer.movielist.data.model.TvSeriesResult
+import com.omer.movielist.data.model.TvSerieResult
 import com.omer.movielist.data.repository.MovieRepository
 
 class MovieDataSource constructor(private val movieRepository: MovieRepository) :
-    PageKeyedDataSource<Int, TvSeriesResult>() {
+    PageKeyedDataSource<Int, TvSerieResult>() {
 
 
     val isLoading = MutableLiveData<Boolean>()
@@ -16,7 +16,7 @@ class MovieDataSource constructor(private val movieRepository: MovieRepository) 
     var apiFailure = MutableLiveData<String>()
 
 
-    override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, TvSeriesResult>) {
+    override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, TvSerieResult>) {
         isLoading.postValue(true)
         movieRepository.getPopularSeries(ApiConstants.DEFAULT_PAGE_COUNT,
 
@@ -35,7 +35,7 @@ class MovieDataSource constructor(private val movieRepository: MovieRepository) 
         )
     }
 
-    override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, TvSeriesResult>) {
+    override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, TvSerieResult>) {
         isLoading.postValue(true)
         movieRepository.getPopularSeries(params.key,
 
@@ -54,7 +54,7 @@ class MovieDataSource constructor(private val movieRepository: MovieRepository) 
         )
     }
 
-    override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, TvSeriesResult>) {
+    override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, TvSerieResult>) {
     }
 
 }

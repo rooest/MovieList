@@ -4,5 +4,11 @@
 
 
     <string name="text_rating">Rating: %s</string>
-    <string name="text_movie_title">The Dark Knight</string>
+    <string name="text_movie_detail_title">Movie Detail</string>
+
+
+
+    <string name="dummy_movie_title">The Dark Knight</string>
+    <string name="dummy_movie_language">English</string>
+    <string name="dummy_movie_date">2012-10-10</string>
 </resources>

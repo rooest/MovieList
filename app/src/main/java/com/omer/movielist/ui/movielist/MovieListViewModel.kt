@@ -8,14 +8,14 @@ import androidx.paging.PagedList
 import com.google.gson.Gson
 import com.omer.movielist.data.datasource.MovieDataSourceFactory
 import com.omer.movielist.data.model.ApiError
-import com.omer.movielist.data.model.TvSeriesResult
+import com.omer.movielist.data.model.TvSerieResult
 import com.omer.movielist.data.repository.MovieRepository
 import javax.inject.Inject
 
 class MovieListViewModel @Inject constructor(private val movieRepository: MovieRepository) : ViewModel() {
 
 
-    lateinit var tvSeriesResultLD: LiveData<PagedList<TvSeriesResult>>
+    lateinit var tvSerieResultLD: LiveData<PagedList<TvSerieResult>>
 
     var isLoading = MutableLiveData<Boolean>()
     var apiError = MutableLiveData<ApiError>()
@@ -43,14 +43,14 @@ class MovieListViewModel @Inject constructor(private val movieRepository: MovieR
             .build()
 
 
-        tvSeriesResultLD = LivePagedListBuilder<Int, TvSeriesResult>(factory, pageConfig)
+        tvSerieResultLD = LivePagedListBuilder<Int, TvSerieResult>(factory, pageConfig)
             .build()
     }
 
 
-    fun convertClickedMovieItem(tvSeriesResult: TvSeriesResult?) {
-        tvSeriesResult?.let {
-            val tvResultAsString = Gson().toJson(it, TvSeriesResult::class.java)
+    fun convertClickedMovieItem(tvSerieResult: TvSerieResult?) {
+        tvSerieResult?.let {
+            val tvResultAsString = Gson().toJson(it, TvSerieResult::class.java)
             tvResultAsStirng.postValue(tvResultAsString)
         }
     }

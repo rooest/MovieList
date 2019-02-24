@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.omer.movielist.R
-import com.omer.movielist.data.model.TvSeriesResult
+import com.omer.movielist.data.model.TvSerieResult
 import com.omer.movielist.databinding.ActivityMovieListBinding
 import com.omer.movielist.ui.base.BaseActivity
 import com.omer.movielist.ui.moviedetail.MovieDetailActivity
@@ -24,7 +24,7 @@ class MovieListActivity : BaseActivity<MovieListViewModel>(), MovieItemClickList
         viewModel.isLoading.observe(this, Observer {
             mBinding.isLoading = it
         })
-        viewModel.tvSeriesResultLD.observe(this, Observer {
+        viewModel.tvSerieResultLD.observe(this, Observer {
             movieListAdapter.submitList(it)
         })
 
@@ -52,7 +52,7 @@ class MovieListActivity : BaseActivity<MovieListViewModel>(), MovieItemClickList
         mBinding.rvMovieList.layoutManager = gridLayoutManager
     }
 
-    override fun onMovieItemClick(itemResult: TvSeriesResult?) {
+    override fun onMovieItemClick(itemResult: TvSerieResult?) {
         viewModel.convertClickedMovieItem(itemResult)
     }
 }

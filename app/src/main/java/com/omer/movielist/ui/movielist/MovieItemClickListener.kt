@@ -1,7 +1,7 @@
 package com.omer.movielist.ui.movielist
 
-import com.omer.movielist.data.model.TvSeriesResult
+import com.omer.movielist.data.model.TvSerieResult
 
 interface MovieItemClickListener {
-    fun onMovieItemClick(itemResult: TvSeriesResult?)
+    fun onMovieItemClick(itemResult: TvSerieResult?)
 }

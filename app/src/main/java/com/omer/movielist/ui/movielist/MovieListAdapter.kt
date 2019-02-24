@@ -5,12 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.omer.movielist.data.model.TvSeriesResult
+import com.omer.movielist.data.model.TvSerieResult
 import com.omer.movielist.databinding.ItemMovieBinding
 import com.omer.movielist.utils.DebouncedOnClickListener
 
 class MovieListAdapter constructor(movieItemClickListener: MovieItemClickListener) :
-    PagedListAdapter<TvSeriesResult, MovieListAdapter.MovieListViewHolder>(TvSeriesResult.DIFF_CALL) {
+    PagedListAdapter<TvSerieResult, MovieListAdapter.MovieListViewHolder>(TvSerieResult.DIFF_CALL) {
 
     private var mMovieItemClickListener: MovieItemClickListener = movieItemClickListener
 
@@ -18,7 +18,7 @@ class MovieListAdapter constructor(movieItemClickListener: MovieItemClickListene
         MovieListViewHolder.create(parent, mMovieItemClickListener)
 
     override fun onBindViewHolder(holder: MovieListViewHolder, position: Int) {
-        return holder.bind(getItem(position) as TvSeriesResult)
+        return holder.bind(getItem(position) as TvSerieResult)
     }
 
 
@@ -28,14 +28,14 @@ class MovieListAdapter constructor(movieItemClickListener: MovieItemClickListene
     ) : RecyclerView.ViewHolder(binding.root) {
 
 
-        fun bind(tvSeriesResult: TvSeriesResult) = with(binding) {
+        fun bind(tvSerieResult: TvSerieResult) = with(binding) {
             binding.cardMovieItem.setOnClickListener(object : DebouncedOnClickListener(1000) {
                 override fun onDebouncedClick(v: View) {
-                    movieItemClickListener.onMovieItemClick(tvSeriesResult)
+                    movieItemClickListener.onMovieItemClick(tvSerieResult)
                 }
             })
 
-            binding.itemResult = tvSeriesResult
+            binding.itemResult = tvSerieResult
         }
 
         companion object {

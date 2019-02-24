@@ -5,5 +5,5 @@ import java.io.Serializable
 
 data class TvSeriesResponse(
      val error: ApiError,
-    @SerializedName("results") val resultList: List<TvSeriesResult>
+    @SerializedName("results") val resultList: List<TvSerieResult>
 ) : Serializable
