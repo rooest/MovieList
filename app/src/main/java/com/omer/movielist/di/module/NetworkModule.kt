@@ -54,9 +54,9 @@ class NetworkModule {
     fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         val okhttpBuilder = OkHttpClient.Builder()
         debug { okhttpBuilder.addInterceptor(loggingInterceptor) }
-        okhttpBuilder.readTimeout(30, TimeUnit.SECONDS)
-        okhttpBuilder.writeTimeout(30, TimeUnit.SECONDS)
-        okhttpBuilder.connectTimeout(30, TimeUnit.SECONDS)
+        okhttpBuilder.readTimeout(13, TimeUnit.SECONDS)
+        okhttpBuilder.writeTimeout(13, TimeUnit.SECONDS)
+        okhttpBuilder.connectTimeout(13, TimeUnit.SECONDS)
         return okhttpBuilder.build()
     }
 

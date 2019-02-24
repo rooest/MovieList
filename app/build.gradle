@@ -48,6 +48,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
 
     implementation "androidx.lifecycle:lifecycle-extensions:${libraries.lifecycleVersion}"
+    implementation "androidx.paging:paging-runtime:${libraries.paging}"
+
 
     implementation "org.jetbrains.anko:anko:${libraries.ankoVersion}"
     implementation "org.jetbrains.anko:anko-commons:${libraries.ankoVersion}"

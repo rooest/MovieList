@@ -23,11 +23,10 @@ abstract class BaseActivity<VM : ViewModel> : DaggerAppCompatActivity() {
     abstract fun getViewModel(): Class<VM>
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(getViewModel())
+
     }
 
     protected fun showAlertDialog(dialogBuilder: AlertDialog.Builder.() -> Unit) {
@@ -71,6 +70,11 @@ abstract class BaseActivity<VM : ViewModel> : DaggerAppCompatActivity() {
         } else {
             window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        observe()
     }
 
     abstract fun observe()

@@ -1,6 +1,7 @@
 package com.omer.movielist.di.module
 
 import com.omer.movielist.di.scope.ActivityScope
+import com.omer.movielist.ui.moviedetail.MovieDetailActivity
 import com.omer.movielist.ui.movielist.MovieListActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -11,5 +12,9 @@ abstract class ActivityBuilderModule {
     @ActivityScope
     @ContributesAndroidInjector()
     abstract fun movieListActivity(): MovieListActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector()
+    abstract fun movieDetailActivity(): MovieDetailActivity
 
 }
