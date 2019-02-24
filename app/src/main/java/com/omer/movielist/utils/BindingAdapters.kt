@@ -1,6 +1,6 @@
 package com.omer.movielist.utils
 
-import android.databinding.BindingAdapter
+import androidx.databinding.BindingAdapter
 import android.widget.ImageView
 import com.omer.movielist.R
 import com.squareup.picasso.Picasso
