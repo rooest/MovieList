@@ -1,4 +1,4 @@
-package com.omer.movielist.model
+package com.omer.movielist.data.model
 
 import java.io.Serializable
 
