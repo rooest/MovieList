@@ -66,6 +66,8 @@ ext {
             logger           : "2.2.0",
             paging           : "2.0.0-rc01",
             lifecycleVersion : "2.0.0-rc01",
+            archCoreTest : "2.0.0-rc01",
+            mockitoKotlin : "2.1.0",
 
             junit            : "4.12",
             supportTestRunner: "1.0.1",

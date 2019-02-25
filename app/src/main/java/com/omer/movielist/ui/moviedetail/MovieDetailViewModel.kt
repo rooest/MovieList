@@ -9,7 +9,6 @@ import javax.inject.Inject
 
 class MovieDetailViewModel @Inject constructor() : ViewModel() {
 
-
     val tvSeriesResultLD = MutableLiveData<TvSerieResult>()
 
     val backBtnClicked = MutableLiveData<Boolean>()
