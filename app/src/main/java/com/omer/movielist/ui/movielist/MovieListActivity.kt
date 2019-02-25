@@ -35,7 +35,7 @@ class MovieListActivity : BaseActivity<MovieListViewModel>(), MovieItemClickList
         viewModel.apiError.observe(this, Observer {
             showAlertDialog {
                 setMessage(it.statusMessage)
-                positiveButton("OK") { }
+                positiveButton(getString(R.string.text_error_dialog_okey)) { }
             }
         })
     }

@@ -34,7 +34,6 @@ class MovieListAdapter constructor(movieItemClickListener: MovieItemClickListene
                     movieItemClickListener.onMovieItemClick(tvSerieResult)
                 }
             })
-
             binding.itemResult = tvSerieResult
         }
 

@@ -18,6 +18,7 @@ class MovieRepository @Inject constructor(@PublishedApi internal val apiService:
 
 
     inline fun getPopularSeries(
+        token: String? = ApiConstants.API_KEY,
         page: Int,
         crossinline successHandler: (List<TvSerieResult>) -> Unit,
         crossinline failureHandler: (Throwable?) -> Unit,
@@ -25,7 +26,7 @@ class MovieRepository @Inject constructor(@PublishedApi internal val apiService:
     ) {
 
         apiService.getPopularTvShows(
-            ApiConstants.API_KEY,
+            token,
             "en-US",
             page
         ).enqueue(object : Callback<TvSeriesResponse> {

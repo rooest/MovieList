@@ -40,12 +40,12 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0-alpha02'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.material:material:1.1.0-alpha03'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha02'
-    implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
+    implementation "androidx.appcompat:appcompat:${libraries.xAppCompat}"
+    implementation "androidx.legacy:legacy-support-v4:${libraries.xSupport}"
+    implementation "com.google.android.material:material:${libraries.material}"
+    implementation "androidx.recyclerview:recyclerview:${libraries.xRecyclerView}"
+    implementation "androidx.cardview:cardview:${libraries.xCardView}"
+    implementation "androidx.constraintlayout:constraintlayout:${libraries.xConstraint}"
 
     implementation "androidx.lifecycle:lifecycle-extensions:${libraries.lifecycleVersion}"
     implementation "androidx.paging:paging-runtime:${libraries.paging}"
@@ -73,7 +73,22 @@ dependencies {
     implementation "com.squareup.picasso:picasso:${libraries.picassoVersion}"
     implementation "com.jakewharton.picasso:picasso2-okhttp3-downloader:${libraries.okhttp3Downloader}"
 
-    testImplementation "junit:junit:${libraries.junit}"
-    androidTestImplementation 'androidx.test:runner:1.1.2-alpha01'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.2-alpha01'
+
+    testImplementation "junit:junit:${libraries.jUnit}"
+    testImplementation "org.mockito:mockito-core:${libraries.mockitoCore}"
+    androidTestImplementation 'androidx.annotation:annotation:1.0.1'
+    androidTestImplementation "androidx.test.espresso:espresso-core:${libraries.espressoCore}"
+    androidTestImplementation "androidx.test:runner:${libraries.runner}"
+    androidTestImplementation "androidx.test.espresso:espresso-idling-resource:${libraries.espressoCore}"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:${libraries.espressoCore}"
+    androidTestImplementation "com.jakewharton.espresso:okhttp3-idling-resource:${libraries.okhttpIdling}"
+    androidTestImplementation "android.arch.core:core-testing:${libraries.lifecycle}"
+    androidTestImplementation "androidx.test:rules:${libraries.rules}"
+    androidTestImplementation "androidx.test.ext:junit:${libraries.jUnitX}"
+    testImplementation "org.hamcrest:hamcrest-library:${libraries.hamcrest}"
+    testImplementation "org.powermock:powermock-module-junit4:${libraries.powerMockito}"
+    testImplementation "org.powermock:powermock-api-mockito2:${libraries.powerMockito}"
+    testImplementation "com.squareup.okhttp3:mockwebserver:${libraries.mockWebServer}"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:${libraries.mockWebServer}"
+
 }

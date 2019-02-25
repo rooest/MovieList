@@ -6,6 +6,7 @@
     <string name="text_rating">Rating: %s</string>
     <string name="text_movie_detail_title">Movie Detail</string>
     <string name="text_movie_detail_overview_title">OVERVIEW:</string>
+    <string name="text_error_dialog_okey">OKEY.</string>
 
 
 

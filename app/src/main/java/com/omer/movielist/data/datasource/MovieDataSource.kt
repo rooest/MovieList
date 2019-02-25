@@ -18,7 +18,8 @@ class MovieDataSource constructor(private val movieRepository: MovieRepository) 
 
     override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, TvSerieResult>) {
         isLoading.postValue(true)
-        movieRepository.getPopularSeries(ApiConstants.DEFAULT_PAGE_COUNT,
+        movieRepository.getPopularSeries(ApiConstants.API_KEY,
+            ApiConstants.DEFAULT_PAGE_COUNT,
 
             {
                 callback.onResult(it, null, 2)
@@ -37,7 +38,8 @@ class MovieDataSource constructor(private val movieRepository: MovieRepository) 
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, TvSerieResult>) {
         isLoading.postValue(true)
-        movieRepository.getPopularSeries(params.key,
+        movieRepository.getPopularSeries(ApiConstants.API_KEY,
+            params.key,
 
             {
                 callback.onResult(it, params.key + 1)

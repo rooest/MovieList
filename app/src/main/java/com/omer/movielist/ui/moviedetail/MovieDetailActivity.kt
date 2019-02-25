@@ -8,6 +8,7 @@ import com.omer.movielist.R
 import com.omer.movielist.databinding.ActivityMovieDetailBinding
 import com.omer.movielist.ui.base.BaseActivity
 import com.omer.movielist.utils.delegates.contentView
+import com.orhanobut.logger.Logger
 
 class MovieDetailActivity : BaseActivity<MovieDetailViewModel>() {
 
@@ -27,10 +28,10 @@ class MovieDetailActivity : BaseActivity<MovieDetailViewModel>() {
         }
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getIntentExtra()
+        mBinding.viewmodel = viewModel
     }
 
     private fun getIntentExtra() {
@@ -45,5 +46,17 @@ class MovieDetailActivity : BaseActivity<MovieDetailViewModel>() {
         viewModel.tvSeriesResultLD.observe(this, Observer {
             mBinding.serieItem = it
         })
+        viewModel.backBtnClicked.observe(this, Observer {
+            finish()
+        })
+
+        viewModel.isLoading.observe(this, Observer {
+            mBinding.isLoading = it
+        })
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }

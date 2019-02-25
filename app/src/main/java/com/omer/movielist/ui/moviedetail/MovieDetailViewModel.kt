@@ -12,12 +12,24 @@ class MovieDetailViewModel @Inject constructor() : ViewModel() {
 
     val tvSeriesResultLD = MutableLiveData<TvSerieResult>()
 
+    val backBtnClicked = MutableLiveData<Boolean>()
+
+    var isLoading = MutableLiveData<Boolean>()
+
+    init {
+        isLoading.value = true
+    }
 
     fun setIntentResult(movieResultJsonString: String) {
         val movieResult = Gson().fromJson(movieResultJsonString, TvSerieResult::class.java)
         Logger.d(movieResultJsonString)
         tvSeriesResultLD.value = movieResult
+        isLoading.value = false
     }
 
+
+    fun titleClicked() {
+        backBtnClicked.value = true
+    }
 
 }

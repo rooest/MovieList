@@ -5,9 +5,9 @@
     <color name="colorAccent">#D81B60</color>
 
 
-    <color name="colorStartForGradient">#85322e56</color>
-    <color name="colorEndForGradient">#322e56</color>S
-    <color name="colorCenterForGradient">#d8091445</color>
+    <color name="colorStartForGradient">#3C322E56</color>
+    <color name="colorEndForGradient">#41322E56</color>S
+    <color name="colorCenterForGradient">#54091445</color>
 
 
 </resources>
