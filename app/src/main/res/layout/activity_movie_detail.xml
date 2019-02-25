@@ -38,16 +38,18 @@
                 android:layout_width="1dp"
                 android:id="@+id/guideline_one"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.5"
+                app:layout_constraintGuide_percent="0.42"
                 android:layout_height="match_parent"/>
 
         <ImageView
                 android:layout_width="0dp"
                 android:id="@+id/iv_serie_result"
                 tools:src="@drawable/darkknight"
-                android:layout_margin="@dimen/margin_10"
+                android:layout_margin="@dimen/margin_20"
                 app:loadImageUrl="@{serieItem.imageUrl}"
-                app:layout_constraintRight_toLeftOf="@+id/guideline_one"
+                android:adjustViewBounds="true"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_one"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_title_detail"
                 android:layout_height="wrap_content"/>
 
@@ -56,13 +58,13 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/tv_detail_language"
                 android:text="@{serieItem.originalLanguage}"
-                android:layout_marginLeft="@dimen/margin_20"
+                android:layout_marginStart="@dimen/margin_45"
                 android:layout_marginTop="@dimen/margin_35"
                 android:gravity="center_vertical"
                 android:textColor="@android:color/white"
                 android:drawablePadding="@dimen/margin_10"
-                android:drawableLeft="@drawable/ic_language_white_24dp"
-                app:layout_constraintLeft_toRightOf="@+id/iv_serie_result"
+                android:drawableStart="@drawable/ic_language_white_24dp"
+                app:layout_constraintStart_toEndOf="@+id/iv_serie_result"
                 app:layout_constraintTop_toTopOf="@+id/iv_serie_result"
                 tools:text="@string/dummy_movie_language"
                 android:layout_height="wrap_content"/>
@@ -72,18 +74,76 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/tv_detail_duration"
                 android:text="@{serieItem.firstAirDate}"
-                android:layout_marginLeft="@dimen/margin_20"
                 android:layout_marginTop="@dimen/margin_10"
                 android:gravity="center_vertical"
                 android:textColor="@android:color/white"
                 android:drawablePadding="@dimen/margin_10"
-                android:drawableLeft="@drawable/ic_access_time_white_24dp"
-                app:layout_constraintLeft_toRightOf="@+id/iv_serie_result"
+                android:drawableStart="@drawable/ic_access_time_white_24dp"
+                app:layout_constraintStart_toStartOf="@+id/tv_detail_language"
                 app:layout_constraintTop_toBottomOf="@+id/tv_detail_language"
                 tools:text="@string/dummy_movie_date"
                 android:layout_height="wrap_content"/>
 
+        <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tv_vote_count"
+                android:text="@{serieItem.voteCount}"
+                android:layout_marginTop="@dimen/margin_10"
+                android:gravity="center_vertical"
+                android:textColor="@android:color/white"
+                android:drawablePadding="@dimen/margin_10"
+                android:drawableStart="@drawable/ic_thumbs_up_down_white_24dp"
+                app:layout_constraintStart_toStartOf="@+id/tv_detail_language"
+                app:layout_constraintTop_toBottomOf="@+id/tv_detail_duration"
+                tools:text="@string/dummy_movie_vote_count"
+                android:layout_height="wrap_content"/>
 
+        <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tv_vote_rating"
+                android:text="@{serieItem.voteAverage}"
+                android:layout_marginTop="@dimen/margin_10"
+                android:gravity="center_vertical"
+                android:textColor="@android:color/white"
+                android:drawablePadding="@dimen/margin_10"
+                android:drawableStart="@drawable/ic_stars_white_24dp"
+                app:layout_constraintStart_toStartOf="@+id/tv_detail_language"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vote_count"
+                tools:text="@string/dummy_movie_vote_rating"
+                android:layout_height="wrap_content"/>
+
+
+        <TextView
+                android:layout_width="0dp"
+                android:id="@+id/tv_overview_title"
+                android:layout_marginTop="@dimen/margin_30"
+                android:gravity="center_vertical|start"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/size_text_large"
+                android:padding="@dimen/margin_16"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_serie_result"
+                tools:text="@string/text_movie_detail_overview_title"
+                android:text="@string/text_movie_detail_overview_title"
+                android:layout_height="wrap_content"/>
+
+
+        <TextView
+                android:layout_width="0dp"
+                android:id="@+id/tv_overview"
+                android:text="@{serieItem.overview}"
+                android:gravity="center_vertical|start"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/size_text_medium"
+                android:paddingLeft="@dimen/margin_16"
+                android:paddingRight="@dimen/margin_16"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_overview_title"
+                tools:text="@string/dummy_movie_detail_overview"
+                android:layout_height="wrap_content"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

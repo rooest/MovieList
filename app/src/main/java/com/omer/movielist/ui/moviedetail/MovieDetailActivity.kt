@@ -43,7 +43,7 @@ class MovieDetailActivity : BaseActivity<MovieDetailViewModel>() {
 
     override fun observe() {
         viewModel.tvSeriesResultLD.observe(this, Observer {
-
+            mBinding.serieItem = it
         })
     }
 }
